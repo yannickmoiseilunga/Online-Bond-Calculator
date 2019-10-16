@@ -1,0 +1,56 @@
+<!doctype html>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+<div class="center-on-page">
+
+<html> 
+
+   <body>
+
+
+      <table border = 1> 
+
+         {% for key, value in result.items() %} 
+
+
+            <tr> 
+
+               <th> {{ key }} </th> 
+
+               <td> {{ value }} </td> 
+
+            </tr> 
+
+              
+
+         {% endfor %} 
+
+      </table>     
+      <table>
+        {% for field in form %}
+           <tr>
+           <td> {{ field.name }} </td><td> {{ field }} </td>
+           <td> {{ field.label }} </td>
+           </tr>
+        {% endfor %}
+</table>
+
+       
+   <body>
+      <p>     
+      <p>  The Home Sales Price is: = "+str('$')+str({{form.Purchase_Price.data}})  </p>
+      <p>   The Down Payment as a Percentage of Sales Price is: = "+str(Deposit_Paid)+str(' %')  </p>
+      <p>   The Loan Amount is: = "+str(Purchase_Price*(1-Deposit_Paid/100))+str(' %') </p>
+      <p>   The Interest Rate on Annual Percentage Basis is: = "+str(Fixed_Interest_Rate)+str(' %') </p>
+      <p>   The duration of this loan, that is the Loan Term (in months) is: = "+str(Bond_Term1)+str( ' months') </p>
+      <p>   Monthly Payment for this Mortgage(P & I) is: = "+str('$')+str(np.round(X,2))  </p>
+      <p>   Total interest paid over life cycle of the loan is: = "+str('$')+str(np.round(np.sum(Monthly_Interest),2))  </p>
+
+
+        <img src='Monthly Loan interest.png'>
+        <img src='Monthly Loan Balance.png'>
+
+     </p>
+
+   </body> 
+
+</html> 
